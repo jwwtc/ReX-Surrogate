@@ -1,0 +1,442 @@
+#!==============================================================================
+#! 			Recrystallization of a Copper-Nickel Alloy
+#!==============================================================================
+#
+English
+#<directory path>/ <base name>
+results/final/1003/1003
+overwrite
+new
+#
+# Geometry
+# ========
+600
+1
+600
+# cell dimension (grid spacing in µm)
+0.71666 #600x0.71666=430
+#
+# Model
+# =====
+#
+# coupling
+# Options --- phase  concentration [volume_change] temperature  temp_cyl_coord
+#    [stress_{u|ce|mc}{1|2|3}] [flow] [flow_coarse] [dislocation]
+concentration
+no_lat_heat
+#
+# Boundary Conditions
+# ===================
+#
+# Options --- i (insulation) s (symmetric) p (periodic/wrap-around) g (gradient)   f (fixed)     w (wetting)
+# Sequence: W E B T
+# (X: West-East, Y:South-North, Z:Bottom-Top)
+pppp
+pppp
+#
+#
+# Database
+# ========
+# 
+database files/ges/c70600
+# global relinearization interval
+manual
+50 #[s]
+#
+# Components
+# ==========
+#
+# concentration
+weight_percent
+# component 0 (main)
+cu
+# 1
+fe
+# 2
+mn
+# 3
+ni
+end_of_components
+#
+# MICRESS component indexing
+# 0 -> CU (database)
+# 1 -> Fe (database)
+# ...
+#
+# Phases
+# ======
+#
+# The database contains 2 phases:
+# 1: FCC_A1
+# 2: LIQUID
+#
+# phase 0 (matrix=liquid)
+liquid
+# phase 1
+fcc_a1 fcc
+end_of_phases
+#
+# MICRESS phase indexing
+# 0 -> MATRIX (user), alias = MATRIX
+# 1 -> FCC_A1 (database), alias = fcc
+#
+# orientations format
+# Options --- angle_2d  euler_zxz  angle_axis  miller_indices  quaternion
+angle_2d
+#
+# Phase Properties
+#
+# Phase 0
+# --
+# type of molar volume input
+# Options: constant [temp_extrapol] [conc_extrapol]
+database
+#
+# Phase 1
+# --
+# recrystallisation in phase  1
+# Options:   recrystall     no_recrystall   [verbose|no_verbose]
+recrystall verbose
+# recrystallisation model
+# Options:  energy  mean_disloc  local_disloc  [all_interfaces]
+mean_disloc all_interfaces
+# dislocation threshold for recrystallisation model [m^-2]
+1E+12 #2E+12
+# burgers vector of phase 1 [nm] [dislocation interaction coefficient (default: 0.5)]
+0.255625 #R.C. Weast, Ed., Handbook of Chemistry and Physics, 55th ed., CRC Press, 1974
+# shear modulus of phase 1 [MPa]
+47000.0 #C70600 pdf
+#52E+3 #Properties of Wrought Copper and Copper Alloys, Copper and its Alloys, ASM
+# Stress recovery coefficient of phase 1 [MPa] [start_time (default: 0 sec)]
+0
+# anisotropy
+# Optionen: isotropic  anisotropic  faceted_a  faceted_b   faceted[_c]  antifaceted
+anisotropic
+# crystal symmetry
+# Options:   none  cubic  hexagonal  tetragonal  orthorhombic
+cubic
+# should grains of phase  1 be reduced to categories
+# Options:   categorize no_categorize
+no_categorize
+# Type of molar volume input
+# Options: constant database [temp_extrapol] [conc_extrapol]
+database
+# general TQ update-interval for molar volumes [s]
+2
+#
+# Phase Interactions
+# ==================
+#
+# 0 / 1
+no_phase_interaction
+#
+# 1 / 1
+# simulation of interaction between 1 and 1
+phase_interaction
+# type of interfacial energy definition between 1 and 1
+constant
+# interfacial energy between 1 and 1 [J/cm**2]
+#     [max. value for num. interface stabilisation [J/cm**2]]
+0.0000625  #0.625 J/m2, Murr (1975), Vandermeer et al. (1997)
+# type of mobility definition between 1 and 1
+# Options: constant temp_dependent dg_dependent [fixed_minimum]
+temp_dependent
+# File for kinetic coefficient between fcc and fcc?  [cm**4/(Js)]
+files/mobility_coef.txt	#0.0007	#0.00002
+# shall misorientation be considered
+# Options:  misorientation  no_misorientation
+# [low_angle_limit <degrees (default=15)>]  [special_orient <nb>]
+no_misorientation
+#
+# Diffusion
+# =========
+# TQ mobility data
+diagonal g
+diagonal g
+diagonal g
+diagonal g
+diagonal g
+diagonal g
+# interval for updating diffusion coefficients data
+constant
+50 #[s]
+#
+# Initial Microstructure
+# ======================
+from_file
+files\input_mic\600-1.75.vtk FeatureIds
+n
+-1
+#Number of grains found in input data: 144
+# grain properties
+identical
+# phase number (integer) [group number]
+1
+# mean dislocation density [m-2]
+9.1E+14 #(±0.9)			Tibor Berecz (2019)
+#or 7.76E+13, or 1.42E+15	T. Sousa et al. (2017)
+#or 10E+15			Recrystallization and Related Annealing Phenomena (2017)
+# euler angles	#rotation angles
+0
+no_restart_file
+#
+# Initial Concentrations
+# ======================
+#
+input
+# initial concentration of component 1 (Fe) in phase 1 (FCC) [wt%]
+1.5
+1
+10
+1.5
+1
+10
+# temperature at which the initial equilibrium will be calculated [K]
+1003
+#
+# Process Conditions
+# ==================
+#
+# Temperature
+# trend
+# Options --- linear     linear_from_file     profiles_from_file
+linear
+# number of connecting points   (integer)
+0.00
+# initial temperature at the bottom (real) [K]
+1003
+# temperature gradient in z-direction  [K/cm]
+0.00
+# cooling rate [K/s]
+0.00
+#
+# 1D far field for solute diffusion
+# enable one dimensional far field approximation for solute diffusion
+# Options --- 1d_far_field   1d_far_field_EW  no_1d_far_field
+no_1d_far_field
+# moving frame in z-direction
+no_moving_frame
+#
+# Nucleation
+# ==========
+# further nucleation
+# Options --- nucleation   nucleation_symm   no_nucleation  [verbose|no_verbose]
+nucleation
+# additional output for nucleation
+# Options --- out_nucleation     no_out_nucleation
+out_nucleation
+# number of seed types
+1
+#
+# Seed 1
+#
+# position
+# Options --- bulk  region  interface  triple  quadruple  front  [restrictive]
+interface
+# phase (integer) [unresolved|add_to_grain|split_from_grain]
+1
+# reference phase (integer) [min. and max. fraction (real)]
+1
+# substrate phase [2nd substrate phase] [substrate_curvature]
+1
+# maximum number of new nuclei of seed 1
+#set negative for unlimited number
+70
+# grain radius [µm]
+0.5
+# growth mode
+# Options --- stabilisation analytical_curvature
+stabilisation
+# critical dislocation density [m^-2]
+3E+14 #2.25E+14, (723K) Murr 1975, Vandermeer 1997	
+# nuclei orientations
+# Options ---  random    randomZ   fix     range    parent_relation
+random
+# Shield effect
+# shield time [s] [shield phase or group number]
+2.000
+# shield distance [µm]
+20
+# min and max densities of the nuclei
+# dislocation density min [m^-2]
+1E+12 #Niezgoda, Wang
+# dislocation density max
+1E+12
+# nucleation range
+# min. nucleation temperature for seed 1 [K]
+860
+# max. nucleation temperature for seed 1
+1200
+# time between checks for nucleation [s]
+# Options --- constant   from_file
+constant
+# time interval [s]
+2
+# random noise  [!!!]
+# Options --- nucleation_noise  no_nucleation_noise
+nucleation_noise
+# factor for random noise
+# (applied as DeltaT -> (1+Factor*(RAND-1/2))*DeltaT)
+1E-03
+#
+# seed for random-number generator initialisation
+13
+# simultaneous nucleations maximum
+#(set to 0 for automatic)
+70
+# killing metastable seeds
+# Options ---  kill_metastable  no_kill_metastable
+kill_metastable
+#
+# Output
+# ======
+#
+# Output times
+# ------------
+# Finish input of output times (in seconds) with 'end_of_simulation'
+# 'regularly-spaced' outputs can be set with 'linear_step'
+# or 'logarithmic_step' and then specifying the increment
+# and end value
+# ('automatic_outputs' optionally followed by the number
+#  of outputs can be used in conjuction with 'linear_from_file')
+#  'first'                  : additional output for first time-step
+#  'end_at_temperature' <temp>     : additional output and end of simulation at given temperature.
+#  'end_at_fraction' <phase><frac> : additional output and end of simulation
+#                                    at given phase fraction
+linear_step 1 20
+linear_step 10 60
+linear_step 20 200
+linear_step 200 6000
+linear_step 5 6700
+linear_step 200 11000
+end_of_simulation
+#
+# Output files
+# ------------
+# Selection of the outputs
+# [legacy|verbose|terse]
+# Restart data output?                                 ('rest')
+# Options --- out_restart      no_out_restart         [wallclock time, h.]
+no_out_restart
+# Grain number output?                                 ('korn')
+# Options --- out_grains       no_out_grains
+out_grains
+# Phase number output?                                 ('phas')
+# Options --- out_phases       no_out_phases          [no_interfaces]
+out_phases
+# Fraction output?                                     ('frac')
+# Options --- out_fraction     no_out_fraction        [phase number]
+out_fraction
+# Average fraction table?                              ('TabF')
+# Options --- tab_fractions    no_tab_fractions       [front_temp] [TabL_steps]
+no_tab_fractions
+# Interface output?                                    ('intf')
+# Options --- out_interface    no_out_interface       [sharp]
+out_interface
+# Driving-force output?                                ('driv')
+# Options --- out_driv_force   no_out_driv_force
+no_out_driv_force
+# Relinearisation number output?                       ('numR')
+# Options --- out_relin    no_out_relin
+no_out_relin
+# Linearisation reference output?            ('refR')
+# Options --- out_lin_ref    no_out_lin_ref
+no_out_lin_ref
+# Interface mobility output?                           ('mueS')
+# Options --- out_mobility     no_out_mobility
+no_out_mobility
+# Curvature output?                                    ('krum')
+# Options --- out_curvature    no_out_curvature
+no_out_curvature
+# Interface velocity output?                           ('vel')
+# Options --- out_velocity     no_out_velocity
+no_out_velocity
+# Should the grain-time file be written out?           ('TabK')
+# Options --- tab_grains       no_tab_grains          [extra|standard]
+no_tab_grains
+# Should the 'von Neumann Mullins' output be written out?       ('TabN')
+# Options --- tab_vnm    no_tab_vnm
+no_tab_vnm
+# Should the 'grain data output' be written out?       ('TabGD')
+# Options --- tab_grain_data    no_tab_grain_data
+no_tab_grain_data
+# Temperature output?                                  ('temp')
+# Options --- out_temp         no_out_temp
+no_out_temp
+# Concentration output?                                ('conc')
+# Options --- out_conc  no_out_conc  [component numbers] [atom_percent|weight_percent] [element_extensions]
+out_conc
+# Concentration of reference phase output?             ('cPha')
+# Options --- out_conc_phase  no_out_conc_phase
+#   phase 0 [component numbers (default = all)] | ...
+#   ... | phase n [component numbers] [atom_percent|weight_percent] [element_extensions]
+out_conc_phase 0
+# Output for phase: 0  Concentrations: All
+# Average concentration per phase (and extrema)?       ('TabC')
+# Options --- tab_conc       no_tab_conc
+tab_conc
+# Recrystallisation energy output?                     ('rex')
+# Options --- out_recrystall   no_out_recrystall
+out_recrystall
+# Recrystallised fraction output?                      ('TabR')
+# Options --- tab_recrystall   no_tab_recrystall
+tab_recrystall
+# Dislocation density output?                          ('rhoD')
+# Options --- out_disloc       no_out_disloc
+out_disloc
+# Miller-Indices output?                               ('mill')
+# Options --- out_miller       no_out_miller
+no_out_miller
+# Orientation output?                                  ('orie')
+# Options --- out_orientation  no_out_orientation
+no_out_orientation
+# Should the orientation-time file be written?         ('TabO')
+# Options --- tab_orientation  no_tab_orientation    [rotmat]
+no_tab_orientation
+# Linearisation output?     ('TabLin')
+# Options --- tab_lin  no_tab_lin
+no_tab_lin
+# Should monitoring outputs be written out?            ('TabL')
+# Options --- tab_log [simulation time, s] [wallclock time, min]  no_tab_log
+no_tab_log
+#
+#
+# Numerical parameters
+# ====================
+#
+# Phase field solver
+# ------------------
+# Time-step
+# Options --- fix ...[s]   automatic    automatic_limited
+automatic
+#Coefficient for phase-field criterion 1.00
+#Number of steps to adjust profiles of initially sharp interfaces [exclude_inactive]?
+50
+# Type of potential?
+# Options --- double_obstacle  multi_obstacle   [no_fd_correction | fd_correction]
+# Recommended: multi_obstacle fd_correction
+multi_obstacle fd_correction
+# phase minimum
+5.00E-03
+# interface thickness (in cells)
+5.5
+# Coefficient for initial dimension of field iFace
+#  [minimum usage] [target usage]
+0.1
+# Coefficient for initial dimension of field nTupel
+#  [minimum usage] [target usage]
+0.1
+#
+# Concentration solver
+# --------------------
+# factor for diffusion time stepping (0.0 < factor < 1.0)
+0.95
+end_of_options
+#
+#
+# Parallel Execution
+# --------------------
+# parallel threads
+10
+#
+# ==================================================================================================
