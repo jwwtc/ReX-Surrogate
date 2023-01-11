@@ -1,10 +1,10 @@
 # ReX-Surrogate
 
-
+<br/><br/>
 
 <img src="figures/cover.png">
 
-
+<br/><br/>
 
 ## Abstract
 From a materials engineering standpoint, the development and understanding of process-microstructure-properties relationships is crucial for the design of both processes and products. To this end, phase-field modeling is widely used to simulate the microstructural evolution at the mesoscale. As a result, linkages between the process and the microstructure are created, which can also expand towards the properties and performance of the respective material. However, besides its significant computational cost, phase-field modeling primarily deals with the forward problem of microstructural evolution prediction. For the inversion of the linkages, and towards the optimization of the process parameters that lead to desirable microstructures and properties, the approach has to change. Here, we create a surrogate (or reduced-order) model for the phase-field simulation of recrystallization of copper-nickel alloys. First, we simulate the phenomenon for several strategically defined points in the process parameter space of annealing temperature and duration. Thus, we obtain the final microstructures, which form the basis for the dataset that will be used for the training and evaluation of the machine learning surrogate model. We then use two-point spatial correlations to effectively quantify the ensemble of final microstructures and principal component analysis to derive their low-dimensional representations, which can now be used by a machine learning model. A Gaussian process regression model is trained by treating the process parameters as inputs and the final low-dimensional representations of the microstructures as outputs. By implementing this methodology, we develop easily accessible linkages between the process of annealing and the microstructures of these specific alloys, which can be expanded towards the properties and inverted through Bayesian optimization.
@@ -27,8 +27,8 @@ From a materials engineering standpoint, the development and understanding of pr
 
 Microstructures            |  Autocorrelations
 :-------------------------:|:-------------------------:
-<img src="figures/samples/microstructure_a.png" style="width:12cm;"/>  |  <img src="figures/samples/cor_a.PNG" style="width:12cm"/>
-<img src="figures/samples/microstructure_b.png" style="width:12cm;"/>  |  <img src="figures/samples/cor_b.PNG" style="width:12cm;"/>
+<img src="figures/samples/microstructure_a.png" style="width:8cm;"/>  |  <img src="figures/samples/cor_a.PNG" style="width:8cm"/>
+<img src="figures/samples/microstructure_b.png" style="width:8cm;"/>  |  <img src="figures/samples/cor_b.PNG" style="width:8cm;"/>
 
 PCs for Microstructure Evolution             |  PCs for Microstructure Samples
 :-------------------------:|:-------------------------:
