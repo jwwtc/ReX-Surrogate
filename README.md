@@ -22,7 +22,7 @@ Predictive Mean Surface for PC1             |  Predictive Mean Surface for PC2
 
 ## Citations
 
-### Influential papers
+### Influential Papers
 ```
 @article{Molkeri2022,
   title = {On the importance of microstructure information in materials design: PSP vs PP},
@@ -53,7 +53,7 @@ Predictive Mean Surface for PC1             |  Predictive Mean Surface for PC2
 }
 ```
 
-### Influential books
+### Influential Books
 ```
 @book{pml2Book,
   author = "Kevin P. Murphy",
