@@ -23,12 +23,16 @@ From a materials engineering standpoint, the development and understanding of pr
 
 Microstructures            |  Autocorrelations
 :-------------------------:|:-------------------------:
-<img src="figures/samples/microstructure_a.png" style="width:600px;"/>  |  <img src="figures/samples/cor_a.png" style="width:600px;"/>
-<img src="figures/samples/microstructure_b.png" style="width:600px;"/>  |  <img src="figures/samples/cor_b.png" style="width:600px;"/>
+<img src="figures/samples/microstructure_a.png" style="width:3cm;"/>  |  <img src="figures/samples/cor_a.png" style="width:3cm"/>
+<img src="figures/samples/microstructure_b.png" style="width:3cm;"/>  |  <img src="figures/samples/cor_b.png" style="width:3cm;"/>
 
 PCs for Microstructure Evolution             |  PCs for Microstructure Samples
 :-------------------------:|:-------------------------:
 <img src="figures/statistics/evolution_principal_components.png" style="width:600px;"/>  |  <img src="figures/statistics/principal_components.png" style="width:600px;"/>
+
+Optimized Kernel for PC1             |  Optimized Kernel for PC2
+:-------------------------:|:-------------------------:
+<img src="figures/gp_regression/opt_kernel_a.png" style="width:600px;"/>  |  <img src="figures/gp_regression/opt_kernel_b.png" style="width:600px;"/>
 
 Predictive Mean Surface for PC1             |  Predictive Mean Surface for PC2
 :-------------------------:|:-------------------------:
