@@ -25,61 +25,59 @@ Predictive Mean Surface for PC1             |  Predictive Mean Surface for PC2
 ### Influential papers
 ```
 @article{Molkeri2022,
-title = {On the importance of microstructure information in materials design: PSP vs PP},
-author = {Abhilash Molkeri and Danial Khatamsaz and Richard Couperthwaite and Jaylen James and Raymundo Arróyave and Douglas Allaire and Ankit Srivastava},
-journal = {Acta Materialia},
-year = {2022}
+  title = {On the importance of microstructure information in materials design: PSP vs PP},
+  author = {Abhilash Molkeri and Danial Khatamsaz and Richard Couperthwaite and Jaylen James and Raymundo Arróyave and Douglas Allaire and Ankit Srivastava},
+  journal = {Acta Materialia},
+  year = {2022}
 }
 
 @inproceedings{Dingreville2021,
-title={Accelerating phase-field-based microstructure evolution predictions via surrogate models trained by machine learning methods},
-author={David Montes de Oca Zapiain and James A. Stewart and Rémi Dingreville},
-journal = {npj Computational Materials},
-year = {2021}
+  title={Accelerating phase-field-based microstructure evolution predictions via surrogate models trained by machine learning methods},
+  author={David Montes de Oca Zapiain and James A. Stewart and Rémi Dingreville},
+  journal = {npj Computational Materials},
+  year = {2021}
 }
 
 @article{Yabansu2019,
-title = {Application of Gaussian process regression models for capturing the evolution of microstructure statistics in aging of nickel-based superalloys},
-author = {Yuksel C. Yabansu and Almambet Iskakov and Anna Kapustina and Sudhir Rajagopalan and Surya R. Kalidindi},
-journal = {Acta Materialia},
-year = {2019}
+  title = {Application of Gaussian process regression models for capturing the evolution of microstructure statistics in aging of nickel-based superalloys},
+  author = {Yuksel C. Yabansu and Almambet Iskakov and Anna Kapustina and Sudhir Rajagopalan and Surya R. Kalidindi},
+  journal = {Acta Materialia},
+  year = {2019}
 }
 
 @article{Bottger2015,
-title = {Multi-ternary extrapolation scheme for efficient coupling of thermodynamic data to a multi-phase-field model},
-author = {B. Böttger and J. Eiken and M. Apel},
-journal = {Computational Materials Science},
-year = {2015}
+  title = {Multi-ternary extrapolation scheme for efficient coupling of thermodynamic data to a multi-phase-field model},
+  author = {B. Böttger and J. Eiken and M. Apel},
+  journal = {Computational Materials Science},
+  year = {2015}
 }
 ```
 
 ### Influential books
 ```
 @book{pml2Book,
-author = "Kevin P. Murphy",
-title = "Probabilistic Machine Learning: Advanced Topics",
-publisher = "MIT Press",
-year = 2023,
-url = "http://probml.github.io/book2"
+  author = "Kevin P. Murphy",
+  title = "Probabilistic Machine Learning: Advanced Topics",
+  publisher = "MIT Press",
+  year = 2023,
+  url = "http://probml.github.io/book2"
 }
 
 @book{gramacy2020surrogates,
-title = {Surrogates: {G}aussian Process Modeling, Design and Optimization for the Applied Sciences},
-author = {Robert B. Gramacy},
-publisher = {Chapman Hall/CRC},
-address = {Boca Raton, Florida},
-note = {\url{http://bobby.gramacy.com/surrogates/}},
-year = {2020}
+  title = {Surrogates: {G}aussian Process Modeling, Design and Optimization for the Applied Sciences},
+  author = {Robert B. Gramacy},
+  publisher = {Chapman Hall/CRC},
+  address = {Boca Raton, Florida},
+  note = {\url{http://bobby.gramacy.com/surrogates/}},
+  year = {2020}
 }
 
 @book{Rasmussen2006,
-title = {Gaussian processes for machine learning.},
-author = {Rasmussen, Carl Edward and Williams, Christopher K. I.},
-publisher = {MIT Press},
-year = 2006
+  title = {Gaussian processes for machine learning.},
+  author = {Rasmussen, Carl Edward and Williams, Christopher K. I.},
+  publisher = {MIT Press},
+  year = 2006
 }
-
-
 ```
 ## Install dependencies via Anaconda:
 
