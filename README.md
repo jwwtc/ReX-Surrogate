@@ -86,3 +86,6 @@ Predictive Mean Surface for PC1             |  Predictive Mean Surface for PC2
   `cd ReX-Surrogate`
 2. Install the requirements on a new Anaconda environment: `conda env create -f environment.yml`
 3. Activate the environment: `conda activate rex-surrogate`
+
+## License
+This project is licensed under the [MIT License](https://github.com/jwwtc/ReX-Surrogate/blob/master/LICENSE).
