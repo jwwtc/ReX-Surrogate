@@ -79,7 +79,7 @@ Predictive Mean Surface for PC1             |  Predictive Mean Surface for PC2
   year = 2006
 }
 ```
-## Install dependencies via Anaconda:
+## Install dependencies via Anaconda
 
 1. Clone and enter this repo: <br />
   `git clone https://github.com/jwwtc/ReX-Surrogate.git` <br />
