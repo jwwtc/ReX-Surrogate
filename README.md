@@ -89,3 +89,9 @@ Predictive Mean Surface for PC1             |  Predictive Mean Surface for PC2
 
 ## License
 This project is licensed under the [MIT License](https://github.com/jwwtc/ReX-Surrogate/blob/master/LICENSE).
+
+### Acknowledgments
+
+- [GPy](https://sheffieldml.github.io/GPy/) - a Gaussian Process (GP) framework
+- [PyMKS](https://github.com/materialsinnovation/pymks) - Materials Knowledge System in Python
+- [MICRESS](https://micress.rwth-aachen.de/) - the MICRostructure Evolution Simulation Software
