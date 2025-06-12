@@ -22,6 +22,8 @@ Predictive Mean Surface for PC1             |  Predictive Mean Surface for PC2
 
 ## Citations
 
+Please see the `CITATION.cff` file for how to cite this work.
+
 ### Influential Papers
 ```
 @article{Molkeri2022,
